@@ -234,7 +234,7 @@ export default function MJRPdfGenerator() {
       </div>
 
       {/* ── Main Body: two-column ────────────────────────────────────────────── */}
-      <div style={{ display: 'grid', gridTemplateColumns: '420px 1fr', gap: 20, flex: 1, minHeight: 0 }}>
+      <div className="sprint-panel" style={{ gap: 20, flex: 1, minHeight: 0 }}>
 
         {/* ── Left: Inputs + Actions ─────────────────────────────────────────── */}
         <div style={{ ...glass, padding: 28, display: 'flex', flexDirection: 'column', gap: 20, overflow: 'hidden' }}>

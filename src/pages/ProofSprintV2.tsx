@@ -1271,7 +1271,7 @@ export default function ProofSprintV2() {
   const isTabLocked = (tabId: number) => tabId > 1 && !currentStepComplete(tabId - 1)
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: 24, minHeight: 'calc(100vh - 140px)' }}>
+    <div className="sprint-panel">
       <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 10, overflowY: 'auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
           <div style={{ width: 34, height: 34, borderRadius: 8, display: 'grid', placeItems: 'center', background: 'rgba(0,229,195,0.08)', color: 'var(--teal)' }}>

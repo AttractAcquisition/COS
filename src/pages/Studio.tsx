@@ -372,11 +372,9 @@ export default function Studio() {
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
     <div
+      className="sprint-panel"
       style={{
-        display: 'grid',
-        gridTemplateColumns: '300px 1fr',
         gap: 24,
-        height: 'calc(100vh - 120px)',
         minHeight: 0,
       }}
     >

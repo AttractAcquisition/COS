@@ -148,7 +148,7 @@ export default function Clients() {
   return (
     <div>
       {/* Stats Bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, marginBottom: 24 }}>
+      <div className="stats-grid-4" style={{ marginBottom: 24 }}>
         {[
           { label: 'Active Clients', value: active.length,   sub: 'on retainer' },
           { label: 'Monthly MRR',    value: formatRand(mrr), sub: 'combined retainers' },
@@ -173,7 +173,7 @@ export default function Clients() {
       </div>
 
       {loading
-        ? <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+        ? <div className="cards-grid-3">
             {[1,2,3].map(i => <div key={i} className="skeleton" style={{ height: 160 }} />)}
           </div>
         : clients.length === 0
@@ -185,7 +185,7 @@ export default function Clients() {
             </div>
           )
           : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+            <div className="cards-grid-3">
               {clients.map(c => (
                 <div key={c.id} className="card"
                   onClick={() => { setSelected(c); setSlideTab('overview') }}
@@ -226,7 +226,7 @@ export default function Clients() {
       {selected && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', justifyContent: 'flex-end' }}>
           <div onClick={() => setSelected(null)} style={{ flex: 1, background: 'rgba(0,0,0,0.5)' }} />
-          <div style={{ width: 860, maxWidth: 'calc(100vw - 40px)', background: 'var(--bg2)', borderLeft: '1px solid var(--border2)', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+          <div className="slide-over-panel" style={{ background: 'var(--bg2)', borderLeft: '1px solid var(--border2)', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
 
             <div style={{ padding: '24px 28px 0', flexShrink: 0 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
@@ -271,7 +271,7 @@ export default function Clients() {
               {slideTab === 'overview' && (
                 <>
                   <div className="section-label">Contact Details</div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div className="form-grid-2">
                     <CF label="Business Name" field="business_name" value={selected.business_name} onSave={v => saveField(selected.id, 'business_name', v)} />
                     <CF label="Owner Name" field="owner_name" value={selected.owner_name} onSave={v => saveField(selected.id, 'owner_name', v)} />
                     <CF label="Phone" field="phone" value={selected.phone} onSave={v => saveField(selected.id, 'phone', v)} />
@@ -282,7 +282,7 @@ export default function Clients() {
                   {role !== 'client' && (
                     <>
                       <div className="section-label" style={{ marginTop: 8 }}>Contract & Tier</div>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                      <div className="form-grid-2">
                         <div>
                           <div className="label">Fulfillment Tier</div>
                           <select className="input" value={selected.tier || ''}
@@ -311,7 +311,7 @@ export default function Clients() {
                       </div>
 
                       <div className="section-label" style={{ marginTop: 8 }}>Internal Operations</div>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                      <div className="form-grid-2">
                         <CF label="Meta Ad Account ID" field="meta_ad_account_id" value={selected.meta_ad_account_id} onSave={v => saveField(selected.id, 'meta_ad_account_id', v)} placeholder="act_..." />
                         <div>
                           <div className="label">Growth Operator</div>
@@ -366,7 +366,7 @@ export default function Clients() {
       {showNew && role !== 'client' && (
         <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div onClick={() => { setShowNew(false); setImportProspect(null) }} style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.6)' }} />
-          <div style={{ position: 'relative', background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 12, padding: 32, width: 500, zIndex: 1, maxHeight: '90vh', overflowY: 'auto' }}>
+          <div style={{ position: 'relative', background: 'var(--bg2)', border: '1px solid var(--border2)', borderRadius: 12, padding: 32, width: '100%', maxWidth: 500, zIndex: 1, maxHeight: '90vh', overflowY: 'auto' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
               <div style={{ fontFamily: 'Playfair Display', fontSize: 24, fontWeight: 700 }}>Initialize Client</div>
               <button onClick={() => { setShowNew(false); setImportProspect(null) }} style={{ background: 'none', border: 'none', color: 'var(--grey)', cursor: 'pointer' }}><X size={20} /></button>
@@ -490,7 +490,7 @@ function NewClientForm({ initialProspect, onSave, onCancel }: {
         </div>
       )}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div className="form-grid-2">
         <div>
           <div className="label">Business Name *</div>
           <input className="input" value={form.business_name} onChange={e => setForm(p => ({ ...p, business_name: e.target.value }))} />
@@ -508,7 +508,7 @@ function NewClientForm({ initialProspect, onSave, onCancel }: {
         </select>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div className="form-grid-2">
         <div>
           <div className="label">Contract Start</div>
           <input className="input" type="date" value={form.contract_start_date} onChange={e => setForm(p => ({ ...p, contract_start_date: e.target.value }))} />

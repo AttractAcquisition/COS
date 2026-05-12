@@ -61,7 +61,7 @@ export default function Finance() {
   return (
     <div>
       {/* Stat cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14, marginBottom: 28 }}>
+      <div className="stats-grid-5" style={{ marginBottom: 28 }}>
         {[
           { label: 'Gross Revenue', value: currentRev, sub: `Target ${formatRand(currentMonth?.schedule_d_mrr_target || 0)}` },
           { label: 'Total Expenses', value: currentExp, sub: 'VAs + Ads + Software' },
@@ -212,7 +212,7 @@ function MonthUpdateForm({ row, onSave }: { row: FinancialRow; onSave: (r: Finan
 
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 16 }}>
+      <div className="form-grid-4" style={{ marginBottom: 16 }}>
         {fields.map(([label, key]) => (
           <div key={key}>
             <div className="label" style={{ marginBottom: 6 }}>{label}</div>

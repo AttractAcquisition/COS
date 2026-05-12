@@ -150,7 +150,7 @@ export default function LivePipelineDashboard() {
             <MiniMetric label="Period Updates" value={`${metrics.length} rows`} />
           </section>
 
-          <section style={{ display: 'grid', gap: 16, gridTemplateColumns: '1.1fr 0.9fr' }}>
+          <section style={{ display: 'grid', gap: 16, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             <div style={{ border: '1px solid var(--border2)', borderRadius: 12, background: 'var(--bg2)', padding: 18 }}>
               <div style={{ fontFamily: 'DM Mono', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--teal)', marginBottom: 12 }}>
                 Live Pipeline Notes
@@ -193,9 +193,9 @@ export default function LivePipelineDashboard() {
                 No pipeline data entered yet.
               </div>
             ) : (
-              <div style={{ display: 'grid', gap: 10 }}>
+              <div style={{ display: 'grid', gap: 10, overflowX: 'auto' }}>
                 {metrics.map(row => (
-                  <div key={row.id} style={{ display: 'grid', gridTemplateColumns: '140px repeat(5, minmax(0, 1fr))', gap: 10, alignItems: 'center', padding: '12px 14px', border: '1px solid var(--border2)', borderRadius: 10, background: 'var(--bg)' }}>
+                  <div key={row.id} style={{ display: 'grid', gridTemplateColumns: '140px repeat(5, minmax(80px, 1fr))', gap: 10, alignItems: 'center', padding: '12px 14px', border: '1px solid var(--border2)', borderRadius: 10, background: 'var(--bg)', minWidth: 520 }}>
                     <div>
                       <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--white)' }}>{formatDate(row.date_key)}</div>
                       <div style={{ fontFamily: 'DM Mono', fontSize: 9, color: 'var(--grey)', textTransform: 'uppercase', marginTop: 3 }}>

@@ -209,7 +209,7 @@ async function fetchTransactions() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, paddingBottom: 40, opacity: loading ? 0.7 : 1 }}>
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontFamily: 'Playfair Display', fontSize: 32, margin: 0 }}>Capital Flow</h1>
           <p style={{ color: 'var(--grey)', fontFamily: 'DM Mono', fontSize: 12, marginTop: 4 }}>
@@ -236,14 +236,14 @@ async function fetchTransactions() {
       </div>
 
       {/* Stats Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+      <div className="stats-grid-3" style={{ gap: 20 }}>
         <StatCard title="Total Revenue" amount={stats.income} type="income" />
         <StatCard title="Total Expenses" amount={stats.expenses} type="expense" />
         <StatCard title="Net Profit" amount={stats.net} type="net" />
       </div>
 
       {/* Chart + Sidebar */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: 24 }}>
+      <div className="chart-sidebar-grid">
         {/* Chart */}
         <div className="card" style={{ height: 400, display: 'flex', flexDirection: 'column', padding: 24 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
@@ -291,7 +291,7 @@ async function fetchTransactions() {
           <div className="section-label" style={{ margin: 0 }}>Transaction Ledger</div>
           <Filter size={14} style={{ color: 'var(--grey)' }} />
         </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+        <table className="mobile-card-table" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
           <thead>
             <tr style={{ background: 'var(--bg2)', borderBottom: '1px solid var(--border2)' }}>
               <th style={tableHeaderStyle}>Date</th>

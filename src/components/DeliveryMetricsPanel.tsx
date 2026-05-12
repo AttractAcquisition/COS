@@ -116,7 +116,7 @@ export default function DeliveryMetricsPanel({ title, subtitle, clientId }: { ti
       </div>
 
       <div className="card" style={{ display: 'grid', gap: 14 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, minmax(0, 1fr))', gap: 12 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: 12 }}>
           <Field label="Date">
             <input className="input" type="date" value={form.date_key} onChange={e => setForm((p: any) => ({ ...p, date_key: e.target.value }))} />
           </Field>

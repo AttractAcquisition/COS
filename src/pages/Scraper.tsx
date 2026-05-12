@@ -252,7 +252,7 @@ export default function Scraper() {
   const progress   = Math.min(100, Math.round(elapsed / estimatedSeconds * 100))
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 20, alignItems: 'start' }}>
+    <div className="sprint-panel" style={{ gap: 20, alignItems: 'start' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
         <div className="card">
           <div className="section-label">Search Settings</div>

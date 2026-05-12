@@ -506,7 +506,7 @@ export default function AuthorityBrand({ blankTracker = false }: { blankTracker?
   )
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: 24, height: 'calc(100vh - 140px)' }}>
+    <div className="sprint-panel">
 
       {/* ── Client List ── */}
       <div className="card" style={{ display: 'flex', flexDirection: 'column', gap: 8, overflowY: 'auto' }}>

@@ -195,7 +195,7 @@ export default function SprintDetail() {
       </div>
 
       {/* Ad Performance */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12, marginBottom: 24 }}>
+      <div className="stats-grid-5" style={{ marginBottom: 24 }}>
         {[
           { label: 'Ad Spend', value: formatRand(totalSpend) },
           { label: 'Budget Left', value: formatRand(budgetRemaining) },
@@ -221,7 +221,7 @@ export default function SprintDetail() {
 
         {showLogForm && (
           <div style={{ background: 'var(--bg3)', border: '1px solid var(--border2)', borderRadius: 6, padding: 16, marginBottom: 16 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10, marginBottom: 10 }}>
+            <div className="stats-grid-5" style={{ marginBottom: 10 }}>
               {[
                 { label: 'Reach', field: 'reach' },
                 { label: 'Impressions', field: 'impressions' },

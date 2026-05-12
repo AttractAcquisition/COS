@@ -330,7 +330,7 @@ try {
   const allowedCategories = getVisibleSopCategories(scope)
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 20, height: 'calc(100vh - 120px)' }}>
+    <div className="sprint-panel" style={{ gap: 20 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 }}>
           <div style={{ display: 'flex', gap: 16 }}>

@@ -264,7 +264,7 @@ try {
   const visibleCategoryOptions = CATEGORIES.filter(c => c.key === 'all' || allowedCategories.includes(c.key))
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: 20, height: 'calc(100vh - 120px)' }}>
+    <div className="sprint-panel" style={{ gap: 20 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {visibleCategoryOptions.map(c => (
