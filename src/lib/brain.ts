@@ -17,7 +17,7 @@ export interface BrainResponse {
 }
 
 export async function queryBrain(query: string, conversationId?: string) {
-  const { data, error } = await supabase.functions.invoke('brain-chat', {
+  const { data, error } = await supabase.functions.invoke('claude-chat', {
     body: { query, conversation_id: conversationId ?? null },
   })
 

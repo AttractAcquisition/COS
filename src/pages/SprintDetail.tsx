@@ -7,6 +7,7 @@ import { useToast } from '../lib/toast'
 
 interface Sprint {
   id: string
+  client_id: string | null
   client_name: string | null
   vertical: string | null
   start_date: string
@@ -359,8 +360,8 @@ function GenerateReportButton({ sprintId, sprint, logs }: { sprintId: string; sp
     setGenerating(true)
     setReport('')
     try {
-      const { data, error } = await supabase.functions.invoke('generate-sprint-report', {
-        body: { sprint, logs }
+      const { data, error } = await supabase.functions.invoke('sop-47-weekly-reports', {
+        body: { client_id: sprint.client_id }
       })
       if (error) throw error
       setReport(data.report)

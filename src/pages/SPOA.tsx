@@ -486,7 +486,7 @@ export default function SPOA() {
       console.log('[SPOA] Session OK. Invoking edge function...')
 
       const { data, error } = await supabase.functions.invoke<SPOAResult>(
-        'spoa-generator',
+        'sop-12-spoa-build',
         {
           body:    { prospect: selected },
           headers: { Authorization: `Bearer ${session.access_token}` },

@@ -287,7 +287,7 @@ export default function Studio() {
         return
       }
 
-      const { data, error } = await supabase.functions.invoke<MJRResult>('generate-mjr', {
+      const { data, error } = await supabase.functions.invoke<MJRResult>('sop-08-mjr-build', {
         body: { prospect: selected },
         headers: { Authorization: `Bearer ${session.access_token}` },
       })
