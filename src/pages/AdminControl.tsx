@@ -76,7 +76,7 @@ export default function AdminControl() {
 
     const { data: { session } } = await supabase.auth.getSession();
     const { error } = await supabase.functions.invoke('update-user-role', {
-      body: { userId, role: newRole, metadata_id: metadataId ?? null },
+      body: { user_id: userId, role: newRole, metadata_id: metadataId ?? null },
       headers: { Authorization: `Bearer ${session?.access_token}` },
     });
 
