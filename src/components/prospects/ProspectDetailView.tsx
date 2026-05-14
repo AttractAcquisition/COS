@@ -58,6 +58,7 @@ export default function ProspectDetailView({ prospect, onClose, onUpdate, onDele
       updates.icp_tier = tier
     }
 
+    // TODO Phase 3: route through a patch-prospect AICOS Edge Function
     const { error } = await supabase.from('prospects').update(updates).eq('id', prospect.id)
     if (!error) { 
       onUpdate(updates)

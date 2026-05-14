@@ -50,9 +50,10 @@ export default function CRM() {
   }
 
   async function updateStage(id: string, newStage: string) {
-    const { error } = await supabase.from('prospects').update({ 
-      pipeline_stage: newStage, 
-      updated_at: new Date().toISOString() 
+    // TODO Phase 3: route through an update-prospect-pipeline AICOS Edge Function
+    const { error } = await supabase.from('prospects').update({
+      pipeline_stage: newStage,
+      updated_at: new Date().toISOString()
     } as any).eq('id', id)
     
     if (!error) {
@@ -62,6 +63,7 @@ export default function CRM() {
   }
 
   async function toggleArchive(id: string, currentStatus: boolean) {
+    // TODO Phase 3: route through an archive-prospect AICOS Edge Function
     const { error } = await supabase
       .from('prospects')
       .update({ is_archived: !currentStatus, updated_at: new Date().toISOString() } as any)

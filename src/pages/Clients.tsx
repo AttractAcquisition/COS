@@ -87,7 +87,11 @@ export default function Clients() {
     }
 
     if (prospectId) {
-      await supabase.from('prospects').update({ status: 'closed_won' }).eq('id', prospectId)
+      // Route through AICOS Edge Function — COS must not write to prospects directly
+      const { error: wonErr } = await supabase.functions.invoke('mark-prospect-won', {
+        body: { prospect_id: prospectId, client_id: data.id },
+      })
+      if (wonErr) console.warn('[Clients] mark-prospect-won failed:', wonErr.message)
     }
 
     setClients(prev => [data, ...prev])

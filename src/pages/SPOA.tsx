@@ -511,7 +511,7 @@ export default function SPOA() {
       setFullHtml(assembledDoc)
       setShowPreview(true)
 
-      // Update CRM timestamp
+      // TODO Phase 3: route through a patch-prospect AICOS Edge Function
       const { error: updateErr } = await supabase
         .from('prospects')
         .update({ spoa_delivered_at: new Date().toISOString() } as never)
