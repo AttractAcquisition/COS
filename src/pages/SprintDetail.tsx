@@ -351,7 +351,7 @@ export default function SprintDetail() {
   )
 }
 
-function GenerateReportButton({ sprintId, sprint, logs }: { sprintId: string; sprint: Sprint; logs: DailyLog[] }) {
+function GenerateReportButton({ sprintId, sprint, logs: _logs }: { sprintId: string; sprint: Sprint; logs: DailyLog[] }) {
   const [report, setReport] = useState('')
   const [generating, setGenerating] = useState(false)
   const { toast } = useToast()

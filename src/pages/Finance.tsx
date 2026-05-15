@@ -24,7 +24,7 @@ export default function Finance() {
   useEffect(() => {
     // financial_snapshots is the canonical COS monthly finance table.
     // monthly_revenue is an AICOS aggregate VIEW over finance_ledger — different purpose.
-    supabase.from('financial_snapshots').select('*').order('month').then(({ data }) => {
+    ;(supabase as any).from('financial_snapshots').select('*').order('month').then(({ data }: { data: any }) => {
       setRows((data as any) || [])
       setLoading(false)
     })
@@ -191,7 +191,7 @@ function MonthUpdateForm({ row, onSave }: { row: FinancialRow; onSave: (r: Finan
 
   async function save() {
     setSaving(true)
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('financial_snapshots')
       .update(form)
       .eq('id', row.id)
